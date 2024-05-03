@@ -11,38 +11,38 @@ mongoose.connect(conn)
 .then(()=>console.log('connected'))
 .catch(()=> console.log('Error'))  
 
-const demoSchema = new mongoose.Schema({
-    todo_id:{
-        type:Number,
-        required:true
-    },
-    todo_title:{
-        type:String
-    },
-    todo_desc:{
-        type:String
-    },
-    time:{
-        type:String
-    }
-})
-
 // const demoSchema = new mongoose.Schema({
-//     name:{
-//         type:String,
+//     todo_id:{
+//         type:Number,
 //         required:true
 //     },
-//     age:{
-//         type:Number
+//     todo_title:{
+//         type:String
 //     },
-//     salary:{
-//         type:Number
+//     todo_desc:{
+//         type:String
 //     },
-//     email:{
-//         type: String,
-//         required:true
+//     time:{
+//         type:String
 //     }
 // })
+
+const demoSchema = new mongoose.Schema({
+    name:{
+        type:String,
+        required:true
+    },
+    age:{
+        type:Number
+    },
+    salary:{
+        type:Number
+    },
+    email:{
+        type: String,
+        required:true
+    }
+})
 
 const user = mongoose.model('mymodel',demoSchema,'demodata')
 app.get('/count', async (req, res) =>{
@@ -52,13 +52,13 @@ app.get('/count', async (req, res) =>{
 
 app.post('/create',async (req,res) => {
     const body = req.body;
-    const todo_id= body.id;
-    const todo_title= body.title;
-    const todo_desc = body.desc;
-    const time = body.time;
+    const name= body.name;
+    const age= body.age;
+    const salary = body.salary;
+    const email = body.email;
 
-    // const insertedUser = await user.create({name:name, age: age, salary: salary, email:email})
-    const insertedUser = await user.create({todo_id:todo_id, todo_title: todo_title, todo_desc: todo_desc, time:time})
+    const insertedUser = await user.create({name:name, age: age, salary: salary, email:email})
+    // const insertedUser = await user.create({todo_id:todo_id, todo_title: todo_title, todo_desc: todo_desc, time:time})
 
     res.json({msg: "User inserted successfully", data: insertedUser})
 })
