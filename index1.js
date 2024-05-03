@@ -77,6 +77,19 @@ app.get('/count', async (req, res) =>{
     res.json({count: await user.countDocuments()})
 })
 
+app.post("/login",async(req,res)=>{
+    const body = req.body;
+    const username = body.username;
+    const pass = body.pass;
+    if(username === "aryan" && pass === 123)
+        res.json({
+            data:"success",
+        })
+    else
+        res.end("Incorrect creds");
+    })
+
+
 
 app.post('/create',async (req,res) => {
     const body = req.body;
