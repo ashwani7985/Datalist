@@ -110,4 +110,4 @@ app.get('/id/:name', async(req,res)=>{
     res.json({msg : "success", data : namedUser})
 }) 
 
-app.listen(port, ()=> console.log("Appliction started "+port));
+app.listen(port, ()=> console.log("Appliction started "+ port));
