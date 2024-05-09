@@ -7,14 +7,14 @@ const claimSchema=new mongoose.Schema({
     city:{
         type:String
     },
-    pin:{type:Integer},
-    mobile:{type:Integer},
-    drivingLicenseNo:{type:Integer},
+    pin:{type:Number},
+    mobile:{type:Number},
+    drivingLicenseNo:{type:Number},
     dateOfAccident:{type:Date},
     placeOfAccident:{type:String},
-    clainNo:{type:Integer},
-    policyNo:{type:Integer},
-    vehicleNo:{type:Integer},
+    clainNo:{type:Number},
+    policyNo:{type:Number},
+    vehicleNo:{type:Number},
 
 });
 
