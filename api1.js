@@ -10,11 +10,17 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 app.post("/login",async(req,res)=>{
     const body = req.body;
-    const username = body.username;
-    const pass = body.password;
+
+    const login = await log_in.create({
+        username : body.username,
+        pass : body.password,
+    })
+    
+    // login ? res.status(201).json({msg:"Success",data:login}) : res.status(500).json({msg:"Error", data:login})
+
     if(username === "aryan" && pass === 123)
         res.json({
-            data:"success",
+            data:login,
         })
     else
         res.end("Incorrect creds");
