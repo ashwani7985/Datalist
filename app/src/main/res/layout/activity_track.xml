@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Claim Tracking"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+    <ListView
+        android:id="@+id/listViewClaims"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="16dp"
+        android:padding="10dp" />
+
+    <TextView
+            android:id="@+id/textViewNoClaims"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No claims found."
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"
+            />
+<!--    android:visibility="gone"-->
+</LinearLayout>
+
