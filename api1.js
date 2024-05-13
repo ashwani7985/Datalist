@@ -8,6 +8,10 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
+app.get("/hello", (req, res) => {
+    res.end("Hello world")
+})
+
 app.post("/login",async(req,res)=>{
     // const body = req.body;
     const{email, password} = req.body
