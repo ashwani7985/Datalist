@@ -22,7 +22,7 @@ app.post("/login",async(req,res)=>{
     // login ? res.status(201).json({msg:"Success",data:login}) : res.status(500).json({msg:"Error", data:login})
 if(user){
     if(password === user.password){
-        res.json(login)
+        res.json({email:user.email, password: user.password});
     }else{
         res.status(401).json({error:'invalid password'});
     }
