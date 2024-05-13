@@ -9,17 +9,17 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
 //login
-app.post("/login",async(req,res)=>{
-    const body = req.body;
-    const username = body.username;
-    const pass = body.password;
-    if(username === "aryan" && pass === 123)
-        res.json({
-            data:"success",
-        })
-    else
-        res.end("Incorrect creds");
-    })
+// app.post("/login",async(req,res)=>{
+//     const body = req.body;
+//     const username = body.username;
+//     const pass = body.password;
+//     if(username === "aryan" && pass === 123)
+//         res.json({
+//             data:"success",
+//         })
+//     else
+//         res.end("Incorrect creds");
+//     })
 
 
 //TODO endpoints
