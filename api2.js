@@ -11,6 +11,13 @@ app.get("/hello", (req, res) => {
     res.end("Hello world , Hello Everyone")
 })
 
+app.get("/detail/:vin",(req,res)=>{
+    const vin = req.params.vin
+    const user = register.find({vin})
+   user ? res.status(200).json({msg: "Success", data: user}): 
+   res.status(500).json({msg: "Error", data: user})
+})
+
 app.post("/login",async(req,res)=>{
     const body = req.body;
     const username = body.username;
@@ -40,7 +47,26 @@ app.post('/register',async(req,res)=>{
 })
 
 
-  
+// app.get("/details/:vin",async(req,res)=>{
+//     const vin = req.params.vin
+//     const user = await register.findOne({vin})
+//     if(user){
+//             if(vin === user.vin){
+//                 res.json({
+//                     vName:user.vName,
+//                     vYear: user.vYear,
+//                     color:user.color,
+//                     vin:user.vin,
+//                     ownerName:user.ownerName,
+//                     address: user.address,
+//                     mobileNum:user.mobileNum});
+//             }else{
+//                 res.status(401).json({error:'invalid password'});
+//             }
+//         }else{
+//                 res.status(404).json({error:'User not found'});
+//             }
+// })
    
     // login ? res.status(201).json({msg:"Success",data:login}) : res.status(500).json({msg:"Error", data:login})
 
