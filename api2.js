@@ -36,31 +36,31 @@ app.post('/register',async(req,res)=>{
         address: address,
         mobileNum:mobileNum,
     })
-//     res.json(register1)
-// })
+    res.json(register1)
+})
 
 
   
    
     // login ? res.status(201).json({msg:"Success",data:login}) : res.status(500).json({msg:"Error", data:login})
 
-    const user = await register.findOne({vin});
-if(user){
-    if(vin === user.vin){
-        res.json({
-            vName:user.vName,
-            vYear: user.vYear,
-            color:user.color,
-            vin:user.vin,
-            ownerName:user.ownerName,
-            address: user.address,
-            mobileNum:user.mobileNum});
-    }else{
-        res.status(401).json({error:'invalid password'});
-    }
-}else{
-        res.status(404).json({error:'User not found'});
-    }
-    });
+//     const user = await register.findOne({vin});
+// if(user){
+//     if(vin === user.vin){
+//         res.json({
+//             vName:user.vName,
+//             vYear: user.vYear,
+//             color:user.color,
+//             vin:user.vin,
+//             ownerName:user.ownerName,
+//             address: user.address,
+//             mobileNum:user.mobileNum});
+//     }else{
+//         res.status(401).json({error:'invalid password'});
+//     }
+// }else{
+//         res.status(404).json({error:'User not found'});
+//     }
+//     });
 
 app.listen(PORT, ()=>console.log(`Application listening on port ${PORT}!`))
