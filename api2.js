@@ -11,26 +11,12 @@ app.get("/hello", (req, res) => {
     res.end("Hello world , Hello Everyone")
 })
 
-app.get("/detail/:vin",(req,res)=>{
+app.get("/details/:vin",async (req,res)=>{
     const vin = req.params.vin
-    const user = register.find({vin})
+    const user = await register.findOne({vin})
    user ? res.status(200).json({msg: "Success", data: user}): 
-   res.status(500).json({msg: "Error", data: user})
+   res.status(500).json({msg: "Error", data: null})
 })
-
-app.post("/login",async(req,res)=>{
-    const body = req.body;
-    const username = body.username;
-    const pass = body.pass;
-    if(username === "aryan" && pass === 123)
-        res.json({
-            data:"success",
-        })
-    else
-        res.end("Incorrect creds");
-    })
-
-
 
 app.post('/register',async(req,res)=>{
     const{vName, vYear, color, vin, ownerName, address, mobileNum} = req.body
